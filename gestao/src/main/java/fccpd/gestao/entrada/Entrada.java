@@ -6,13 +6,13 @@ import java.time.LocalDate;
 
 public class Entrada {
     private int id;
-    private int valor;
+    private double valor;
     private String descricao;
     private LocalDate data;
     public Usuario usuario;
 
 
-    public Entrada(int id, int valor, String descricao, LocalDate data, Usuario usuario) {
+    public Entrada(int id, Double valor, String descricao, LocalDate data, Usuario usuario) {
         this.id = id;
         this.valor = valor;
         this.descricao = descricao;
@@ -24,7 +24,7 @@ public class Entrada {
         return id;
     }
 
-    public int getValor() {
+    public double getValor() {
         return valor;
     }
 
@@ -58,5 +58,16 @@ public class Entrada {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    @Override
+    public String toString() {
+        return "Entrada{" +
+                "id=" + id +
+                ", valor=" + valor +
+                ", data=" + data +
+                ", descricao='" + descricao + '\'' +
+                ", usuarioId=" + usuario.getId() +
+                '}';
     }
 }

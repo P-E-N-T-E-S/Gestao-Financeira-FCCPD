@@ -6,6 +6,7 @@ import fccpd.gestao.entrada.EntradaServico;
 import fccpd.gestao.usuario.Usuario;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -13,7 +14,7 @@ public class EntradaServicoImpl implements EntradaServico {
 
     public EntradaRepositorio repositorio;
 
-    public EntradaServicoImpl(EntradaRepositorioImpl repositorio) {
+    public EntradaServicoImpl(EntradaRepositorio repositorio) {
         this.repositorio = repositorio;
     }
 
@@ -28,8 +29,18 @@ public class EntradaServicoImpl implements EntradaServico {
     }
 
     @Override
-    public List<Entrada> buscarEntradaPorUsuario(Usuario usuario) {
-        return repositorio.buscarEntradaPorUsuario(usuario);
+    public List<Entrada> buscarEntradaPorUsuario(int id) {
+        return repositorio.buscarEntradaPorUsuario(id);
+    }
+
+    @Override
+    public List<Entrada> buscarTodasEntradas() {
+        return repositorio.buscarTodasEntradas();
+    }
+
+    @Override
+    public List<Entrada> buscarEntradaPorData(LocalDate inicio, LocalDate fim) {
+        return repositorio.buscarEntradaPorData(inicio, fim);
     }
 
     @Override
