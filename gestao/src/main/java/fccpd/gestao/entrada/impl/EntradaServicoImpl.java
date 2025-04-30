@@ -3,7 +3,6 @@ package fccpd.gestao.entrada.impl;
 import fccpd.gestao.entrada.Entrada;
 import fccpd.gestao.entrada.EntradaRepositorio;
 import fccpd.gestao.entrada.EntradaServico;
-import fccpd.gestao.usuario.Usuario;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -44,7 +43,12 @@ public class EntradaServicoImpl implements EntradaServico {
     }
 
     @Override
-    public void excluirEntrada(Entrada entrada) {
-        repositorio.excluirEntrada(entrada);
+    public void excluirEntrada(int id) {
+        repositorio.excluirEntrada(id);
+    }
+
+    @Override
+    public void alterarEntrada(Entrada entrada, int id) {
+        repositorio.alterarEntrada(entrada, id);
     }
 }

@@ -9,5 +9,7 @@ public interface EntradaRepositorio {
     List<Entrada> buscarEntradaPorUsuario(int id);
     List<Entrada> buscarTodasEntradas();
     List<Entrada> buscarEntradaPorData(LocalDate inicio, LocalDate fim);
-    void excluirEntrada(Entrada entrada);
+    void excluirEntrada(int id);
+    void alterarEntrada(Entrada entrada, int id);
+
 }

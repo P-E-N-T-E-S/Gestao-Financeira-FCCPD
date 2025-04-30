@@ -26,6 +26,7 @@ public class TesteEntradaRunner implements CommandLineRunner {
 
 
         List<Entrada> e = entradaServico.buscarEntradaPorData(LocalDate.now().minusDays(27), LocalDate.now().minusDays(3));
+        entradaServico.alterarEntrada(new Entrada(2, 120.0, "Adaptação", LocalDate.now(), null), 2);
         System.out.println(e);
     }
 }

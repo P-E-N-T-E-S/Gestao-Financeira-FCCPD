@@ -49,7 +49,14 @@ public class EntradaRepositorioImpl implements EntradaRepositorio {
     }
 
     @Override
-    public void excluirEntrada(Entrada entrada) {
-    
+    public void excluirEntrada(int id) {
+        String sql = "DELETE FROM entradas WHERE id = ?";
+        jdbcTemplate.update(sql, id);
+    }
+
+    @Override
+    public void alterarEntrada(Entrada entrada, int id) {
+        String sql = "UPDATE entradas set valor = ?, descricao = ? WHERE id = ?";
+        jdbcTemplate.update(sql, entrada.getValor(), entrada.getDescricao(), id);
     }
 }
