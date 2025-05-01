@@ -56,7 +56,7 @@ public class EntradaRepositorioImpl implements EntradaRepositorio {
 
     @Override
     public void alterarEntrada(Entrada entrada, int id) {
-        String sql = "UPDATE entradas set valor = ?, descricao = ? WHERE id = ?";
+        String sql = "UPDATE entradas set valor = ?, descricao = ?WHERE id = ?";
         jdbcTemplate.update(sql, entrada.getValor(), entrada.getDescricao(), id);
     }
 }
