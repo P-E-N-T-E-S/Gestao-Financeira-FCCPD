@@ -1,10 +1,10 @@
-package fccpd.gestao.entrada;
+package fccpd.gestao.transferencia;
 
 import fccpd.gestao.usuario.Usuario;
 
 import java.time.LocalDate;
 
-public class Entrada {
+public class Transferencia {
     private int id;
     private double valor;
     private String descricao;
@@ -12,7 +12,7 @@ public class Entrada {
     public Usuario usuario;
 
 
-    public Entrada(int id, Double valor, String descricao, LocalDate data, Usuario usuario) {
+    public Transferencia(int id, Double valor, String descricao, LocalDate data, Usuario usuario) {
         this.id = id;
         this.valor = valor;
         this.descricao = descricao;

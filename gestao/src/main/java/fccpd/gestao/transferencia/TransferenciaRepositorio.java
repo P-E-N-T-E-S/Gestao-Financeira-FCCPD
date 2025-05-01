@@ -1,15 +1,15 @@
-package fccpd.gestao.entrada;
+package fccpd.gestao.transferencia;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public interface EntradaRepositorio {
-    void cadastrarEntrada(Entrada entrada);
-    List<Entrada> buscarEntradasporId(int id);
-    List<Entrada> buscarEntradaPorUsuario(int id);
-    List<Entrada> buscarTodasEntradas();
-    List<Entrada> buscarEntradaPorData(LocalDate inicio, LocalDate fim);
-    void excluirEntrada(int id);
-    void alterarEntrada(Entrada entrada, int id);
+public interface TransferenciaRepositorio {
+    void cadastrarTransferencia(Transferencia transferencia);
+    List<Transferencia> buscarTransferenciasporId(int id);
+    List<Transferencia> buscarTransferenciaPorUsuario(int id);
+    List<Transferencia> buscarTodasTransferencias();
+    List<Transferencia> buscarTransferenciaPorData(LocalDate inicio, LocalDate fim);
+    void excluirTransferencia(int id);
+    void alterarTransferencia(Transferencia transferencia, int id);
 
 }

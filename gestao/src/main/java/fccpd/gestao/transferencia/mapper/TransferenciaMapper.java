@@ -1,6 +1,6 @@
-package fccpd.gestao.entrada.mapper;
+package fccpd.gestao.transferencia.mapper;
 
-import fccpd.gestao.entrada.Entrada;
+import fccpd.gestao.transferencia.Transferencia;
 import fccpd.gestao.usuario.Usuario;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -8,8 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
-public class EntradaMapper implements RowMapper<Entrada> {
-    public Entrada mapRow(ResultSet rs, int rowNum) throws SQLException {
+public class TransferenciaMapper implements RowMapper<Transferencia> {
+    public Transferencia mapRow(ResultSet rs, int rowNum) throws SQLException {
         Integer user_id = rs.getInt("usuario_id");
         String username = rs.getString("username");
         String senha = rs.getString("senha");
@@ -20,6 +20,6 @@ public class EntradaMapper implements RowMapper<Entrada> {
         String descricao = rs.getString("descricao");
         Double valor = rs.getDouble("valor");
 
-        return new Entrada(id, valor, descricao, data, usuario);
+        return new Transferencia(id, valor, descricao, data, usuario);
     }
 }

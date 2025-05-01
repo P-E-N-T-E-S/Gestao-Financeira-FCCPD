@@ -1,54 +1,54 @@
-package fccpd.gestao.entrada.impl;
+package fccpd.gestao.transferencia.impl;
 
-import fccpd.gestao.entrada.Entrada;
-import fccpd.gestao.entrada.EntradaRepositorio;
-import fccpd.gestao.entrada.EntradaServico;
+import fccpd.gestao.transferencia.Transferencia;
+import fccpd.gestao.transferencia.TransferenciaRepositorio;
+import fccpd.gestao.transferencia.TransferenciaServico;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class EntradaServicoImpl implements EntradaServico {
+public class TransferenciaServicoImpl implements TransferenciaServico {
 
-    public EntradaRepositorio repositorio;
+    public TransferenciaRepositorio repositorio;
 
-    public EntradaServicoImpl(EntradaRepositorio repositorio) {
-        this.repositorio = repositorio;
+    public TransferenciaServicoImpl(TransferenciaRepositorio transferencia) {
+        this.repositorio = transferencia;
     }
 
     @Override
-    public void cadastrarEntrada(Entrada entrada) {
-        repositorio.cadastrarEntrada(entrada);
+    public void cadastrarTransferencia(Transferencia transferencia) {
+        repositorio.cadastrarTransferencia(transferencia);
     }
 
     @Override
-    public List<Entrada> buscarEntradasporId(int id) {
-        return repositorio.buscarEntradasporId(id);
+    public List<Transferencia> buscarTransferenciasporId(int id) {
+        return repositorio.buscarTransferenciasporId(id);
     }
 
     @Override
-    public List<Entrada> buscarEntradaPorUsuario(int id) {
-        return repositorio.buscarEntradaPorUsuario(id);
+    public List<Transferencia> buscarTransferenciaPorUsuario(int id) {
+        return repositorio.buscarTransferenciaPorUsuario(id);
     }
 
     @Override
-    public List<Entrada> buscarTodasEntradas() {
-        return repositorio.buscarTodasEntradas();
+    public List<Transferencia> buscarTodasTransferencias() {
+        return repositorio.buscarTodasTransferencias();
     }
 
     @Override
-    public List<Entrada> buscarEntradaPorData(LocalDate inicio, LocalDate fim) {
-        return repositorio.buscarEntradaPorData(inicio, fim);
+    public List<Transferencia> buscarTransferenciaPorData(LocalDate inicio, LocalDate fim) {
+        return repositorio.buscarTransferenciaPorData(inicio, fim);
     }
 
     @Override
-    public void excluirEntrada(int id) {
-        repositorio.excluirEntrada(id);
+    public void excluirTransferencia(int id) {
+        repositorio.excluirTransferencia(id);
     }
 
     @Override
-    public void alterarEntrada(Entrada entrada, int id) {
-        repositorio.alterarEntrada(entrada, id);
+    public void alterarTransferencia(Transferencia transferencia, int id) {
+        repositorio.alterarTransferencia(transferencia, id);
     }
 }

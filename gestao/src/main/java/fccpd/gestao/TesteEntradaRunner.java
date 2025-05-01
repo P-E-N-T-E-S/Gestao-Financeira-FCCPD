@@ -1,7 +1,7 @@
 package fccpd.gestao;
 
-import fccpd.gestao.entrada.Entrada;
-import fccpd.gestao.entrada.EntradaServico;
+import fccpd.gestao.transferencia.Transferencia;
+import fccpd.gestao.transferencia.TransferenciaServico;
 import fccpd.gestao.usuario.Usuario;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -12,21 +12,21 @@ import java.util.List;
 @Component
 public class TesteEntradaRunner implements CommandLineRunner {
 
-    private final EntradaServico entradaServico;
+    private final TransferenciaServico transferenciaServico;
 
-    public TesteEntradaRunner(EntradaServico entradaServico) {
-        this.entradaServico = entradaServico;
+    public TesteEntradaRunner(TransferenciaServico transferenciaServico) {
+        this.transferenciaServico = transferenciaServico;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        Entrada entrada = new Entrada(15, 150.0, "Testnado", LocalDate.now(), new Usuario(1, "Andre", "123"));
-        entradaServico.cadastrarEntrada(entrada);
+        Transferencia transferencia = new Transferencia(15, 150.0, "Testnado", LocalDate.now(), new Usuario(1, "Andre", "123"));
+        transferenciaServico.cadastrarTransferencia(transferencia);
 
 
 
-        List<Entrada> e = entradaServico.buscarEntradaPorData(LocalDate.now().minusDays(27), LocalDate.now().minusDays(3));
-        entradaServico.alterarEntrada(new Entrada(2, 120.0, "Adaptação", LocalDate.now(), null), 2);
+        List<Transferencia> e = transferenciaServico.buscarTransferenciaPorData(LocalDate.now().minusDays(27), LocalDate.now().minusDays(3));
+        transferenciaServico.alterarTransferencia(new Transferencia(2, 120.0, "Adaptação", LocalDate.now(), null), 2);
         System.out.println(e);
     }
 }

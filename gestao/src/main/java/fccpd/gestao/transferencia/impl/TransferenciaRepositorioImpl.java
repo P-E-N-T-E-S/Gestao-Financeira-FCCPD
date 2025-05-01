@@ -1,8 +1,8 @@
-package fccpd.gestao.entrada.impl;
+package fccpd.gestao.transferencia.impl;
 
-import fccpd.gestao.entrada.Entrada;
-import fccpd.gestao.entrada.EntradaRepositorio;
-import fccpd.gestao.entrada.mapper.EntradaMapper;
+import fccpd.gestao.transferencia.Transferencia;
+import fccpd.gestao.transferencia.TransferenciaRepositorio;
+import fccpd.gestao.transferencia.mapper.TransferenciaMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -10,53 +10,53 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public class EntradaRepositorioImpl implements EntradaRepositorio {
+public class TransferenciaRepositorioImpl implements TransferenciaRepositorio {
 
     private JdbcTemplate jdbcTemplate;
 
-    public EntradaRepositorioImpl(JdbcTemplate jdbcTemplate) {
+    public TransferenciaRepositorioImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
-    public void cadastrarEntrada(Entrada entrada) {
+    public void cadastrarTransferencia(Transferencia transferencia) {
         String sql = "INSERT INTO entradas (valor, descricao, data, usuario_id) VALUES (?,?,?,?)";
-        jdbcTemplate.update(sql, entrada.getValor(), entrada.getDescricao(), entrada.getData(), entrada.getUsuario().getId());
+        jdbcTemplate.update(sql, transferencia.getValor(), transferencia.getDescricao(), transferencia.getData(), transferencia.getUsuario().getId());
     }
 
     @Override
-    public List<Entrada> buscarEntradasporId(int id) {
+    public List<Transferencia> buscarTransferenciasporId(int id) {
         String sql = "SELECT * FROM entradas e JOIN usuarios u ON e.id = u.id WHERE u.id = ? ";
-        return jdbcTemplate.query(sql, new EntradaMapper(), id);
+        return jdbcTemplate.query(sql, new TransferenciaMapper(), id);
     }
 
     @Override
-    public List<Entrada> buscarTodasEntradas() {
+    public List<Transferencia> buscarTodasTransferencias() {
         String sql = "SELECT * FROM entradas e join usuarios u ON u.id = e.usuario_id ";
-        return jdbcTemplate.query(sql, new EntradaMapper());
+        return jdbcTemplate.query(sql, new TransferenciaMapper());
     }
 
     @Override
-    public List<Entrada> buscarEntradaPorData(LocalDate inicio, LocalDate fim) {
+    public List<Transferencia> buscarTransferenciaPorData(LocalDate inicio, LocalDate fim) {
         String sql = "SELECT * FROM entradas e join usuarios u ON u.id = e.usuario_id WHERE e.data between ? and ? ";
-        return jdbcTemplate.query(sql, new EntradaMapper(), inicio, fim);
+        return jdbcTemplate.query(sql, new TransferenciaMapper(), inicio, fim);
     }
 
     @Override
-    public List<Entrada> buscarEntradaPorUsuario(int id) {
+    public List<Transferencia> buscarTransferenciaPorUsuario(int id) {
         String sql = "SELECT * FROM entradas e join usuarios u ON u.id = e.usuario_id WHERE u.id = ?";
-        return jdbcTemplate.query(sql, new EntradaMapper(), id);
+        return jdbcTemplate.query(sql, new TransferenciaMapper(), id);
     }
 
     @Override
-    public void excluirEntrada(int id) {
+    public void excluirTransferencia(int id) {
         String sql = "DELETE FROM entradas WHERE id = ?";
         jdbcTemplate.update(sql, id);
     }
 
     @Override
-    public void alterarEntrada(Entrada entrada, int id) {
+    public void alterarTransferencia(Transferencia transferencia, int id) {
         String sql = "UPDATE entradas set valor = ?, descricao = ?WHERE id = ?";
-        jdbcTemplate.update(sql, entrada.getValor(), entrada.getDescricao(), id);
+        jdbcTemplate.update(sql, transferencia.getValor(), transferencia.getDescricao(), id);
     }
 }
