@@ -21,10 +21,6 @@ services:
       - mysql
     ports:
       - "8080:8080"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3307/meubanco
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: senha
     networks:
       - springnet
 

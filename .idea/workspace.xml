@@ -1,37 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f0786578-6d90-4e47-a531-e0f48ccd8bd7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/88347c73-c5e2-458e-9894-8dca829f393a.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/88347c73-c5e2-458e-9894-8dca829f393a/storage_v2/_src_/schema/meubanco._jzv5g.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestao/src/main/java/fccpd/gestao/metas/MetaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestao/src/main/java/fccpd/gestao/metas/MetaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestao/src/main/java/fccpd/gestao/metas/MetaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestao/src/main/java/fccpd/gestao/metas/mapper/MetaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestao/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gestao/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestao/src/main/java/fccpd/gestao/metas/Meta.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestao/src/main/java/fccpd/gestao/metas/Meta.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;evaldocunhaf&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/P-E-N-T-E-S/Gestao-Financeira-FCCPD.git&quot;,
+    &quot;accountId&quot;: &quot;5aa3ed3b-5012-4296-97df-4478adb8de0a&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2wS9jjiEvBv9B0J1lCi90oKhVC0" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/evaldocunhafilho/IdeaProjects/Gestao-Financeira-FCCPD&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="gestao" />
@@ -48,8 +84,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
-        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.28" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.28" />
       </set>
     </attachedChunks>
   </component>
@@ -61,6 +97,8 @@
       <option name="presentableId" value="Default" />
       <updated>1746024247836</updated>
       <workItem from="1746024249651" duration="33000" />
+      <workItem from="1746057438530" duration="1593000" />
+      <workItem from="1746059650975" duration="629000" />
     </task>
     <servers />
   </component>
