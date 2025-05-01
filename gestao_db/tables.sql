@@ -7,8 +7,8 @@ CREATE TABLE usuario (
 CREATE TABLE categoria (
     id INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(50),
-    descricao TEXT,
-)
+    descricao TEXT
+);
 
 CREATE TABLE transferencia (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -29,4 +29,4 @@ CREATE TABLE meta (
     valor DECIMAL(10, 2),
     usuario_id INT,
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
-)
+);
