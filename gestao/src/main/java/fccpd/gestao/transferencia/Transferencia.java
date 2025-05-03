@@ -1,5 +1,6 @@
 package fccpd.gestao.transferencia;
 
+import fccpd.gestao.categoria.Categoria;
 import fccpd.gestao.usuario.Usuario;
 
 import java.time.LocalDate;
@@ -10,14 +11,18 @@ public class Transferencia {
     private String descricao;
     private LocalDate data;
     public Usuario usuario;
+    public boolean recebimento;
+    public Categoria categoria;
 
 
-    public Transferencia(int id, Double valor, String descricao, LocalDate data, Usuario usuario) {
+    public Transferencia(int id, Double valor, String descricao, LocalDate data, Usuario usuario, boolean recebimento, Categoria categoria) {
         this.id = id;
         this.valor = valor;
         this.descricao = descricao;
         this.data = data;
         this.usuario = usuario;
+        this.recebimento = recebimento;
+        this.categoria = categoria;
     }
 
     public int getId() {
@@ -40,10 +45,6 @@ public class Transferencia {
         this.id = id;
     }
 
-    public void setValor(int valor) {
-        this.valor = valor;
-    }
-
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
@@ -60,14 +61,36 @@ public class Transferencia {
         this.usuario = usuario;
     }
 
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public boolean isRecebimento() {
+        return recebimento;
+    }
+
+    public void setRecebimento(boolean recebimento) {
+        this.recebimento = recebimento;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     @Override
     public String toString() {
-        return "Entrada{" +
+        return "Transferencia{" +
                 "id=" + id +
                 ", valor=" + valor +
-                ", data=" + data +
                 ", descricao='" + descricao + '\'' +
-                ", usuarioId=" + usuario.getId() +
+                ", data=" + data +
+                ", usuario=" + usuario.getUsername() +
+                ", recebimento=" + recebimento +
+                ", categoria=" + categoria +
                 '}';
     }
 }

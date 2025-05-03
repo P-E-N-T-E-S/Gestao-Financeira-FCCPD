@@ -38,6 +38,11 @@ public class TransferenciaServicoImpl implements TransferenciaServico {
     }
 
     @Override
+    public List<Transferencia> buscarTransferenciasPorCategoria(int id) {
+        return repositorio.buscarTransferenciasPorCategoria(id);
+    }
+
+    @Override
     public List<Transferencia> buscarTransferenciaPorData(LocalDate inicio, LocalDate fim) {
         return repositorio.buscarTransferenciaPorData(inicio, fim);
     }

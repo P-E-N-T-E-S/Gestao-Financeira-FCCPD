@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public class TransferenciaRepositorioImpl implements TransferenciaRepositorio {
 
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public TransferenciaRepositorioImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -34,6 +34,12 @@ public class TransferenciaRepositorioImpl implements TransferenciaRepositorio {
     public List<Transferencia> buscarTodasTransferencias() {
         String sql = "SELECT * FROM transferencias t join usuarios u ON u.id = t.usuario_id ";
         return jdbcTemplate.query(sql, new TransferenciaMapper());
+    }
+
+    @Override
+    public List<Transferencia> buscarTransferenciasPorCategoria(int id) {
+        String sql = "SELECT * FROM transferencias t join categoria c ON c.id = t.categoria_id WHERE t.categoria_id = ?";
+        return jdbcTemplate.query(sql, new TransferenciaMapper(), id);
     }
 
     @Override

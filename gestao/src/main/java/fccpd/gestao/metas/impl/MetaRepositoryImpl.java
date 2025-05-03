@@ -4,12 +4,14 @@ import fccpd.gestao.metas.Meta;
 import fccpd.gestao.metas.MetaRepository;
 import fccpd.gestao.metas.mapper.MetaMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class MetaRepositoryImpl implements MetaRepository {
 
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public MetaRepositoryImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
