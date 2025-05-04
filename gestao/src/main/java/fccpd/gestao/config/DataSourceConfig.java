@@ -11,12 +11,9 @@ import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfig {
 
-    @Value("spring.datasource.url")
-    private String datasourceUrl;
-    @Value("spring.datasource.username")
-    private String datasourceUsername;
-    @Value("spring.datasource.password")
-    private String datasourcePassword;
+    private String datasourceUrl = "jdbc:mysql://localhost:3307/gerencia";
+    private String datasourceUsername = "user";
+    private String datasourcePassword = "senha";
 
     @Bean
     public DataSource dataSource() {

@@ -1,16 +1,18 @@
-CREATE TABLE usuario (
+USE gerencia;
+
+CREATE TABLE IF NOT EXISTS usuario (
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE categoria (
+CREATE TABLE IF NOT EXISTS categoria (
     id INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(50),
     descricao TEXT
 );
 
-CREATE TABLE transferencia (
+CREATE TABLE IF NOT EXISTS transferencia (
     id INT PRIMARY KEY AUTO_INCREMENT,
     valor DECIMAL(10, 2) NOT NULL,
     data DATE NOT NULL,
@@ -22,8 +24,8 @@ CREATE TABLE transferencia (
     FOREIGN KEY (categoria_id) REFERENCES categoria(id)
 );
 
-CREATE TABLE meta (
-    id INT AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS meta (
+    id INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(50),
     descricao TEXT,
     valor DECIMAL(10, 2),

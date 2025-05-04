@@ -21,6 +21,8 @@ public class TesteEntradaRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+
         Transferencia transferencia = new Transferencia(15, 150.0, "Testnado", LocalDate.now(), new Usuario(1, "Andre", "123"), true, new Categoria(1, "Automovel", "Compras relacionadas a automoveis"));
         transferenciaServico.cadastrarTransferencia(transferencia);
 
