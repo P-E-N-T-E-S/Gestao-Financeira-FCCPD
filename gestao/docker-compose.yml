@@ -7,16 +7,15 @@ services:
       MYSQL_DATABASE: gerencia
       MYSQL_USER: user
       MYSQL_PASSWORD: senha
+    networks:
+      - springnet
     ports:
-      - "3306:3307"
+      - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
 
   spring-app:
-    build: .
-    container_name: spring_container
-    depends_on:
-      - mysql
+    image: bmespantalho29/gestaofinanceira:latest
     ports:
       - "8080:8080"
     networks:
