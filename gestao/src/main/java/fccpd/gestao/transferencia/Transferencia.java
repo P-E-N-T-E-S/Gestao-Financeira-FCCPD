@@ -25,6 +25,10 @@ public class Transferencia {
         this.categoria = categoria;
     }
 
+    public Transferencia(int id){
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
@@ -90,7 +94,7 @@ public class Transferencia {
                 ", data=" + data +
                 ", usuario=" + usuario.getUsername() +
                 ", recebimento=" + recebimento +
-                ", categoria=" + categoria +
+                ", categoria=" + categoria.getTitulo() +
                 '}';
     }
 }

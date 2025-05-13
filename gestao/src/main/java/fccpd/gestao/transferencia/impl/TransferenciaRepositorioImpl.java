@@ -20,37 +20,37 @@ public class TransferenciaRepositorioImpl implements TransferenciaRepositorio {
 
     @Override
     public void cadastrarTransferencia(Transferencia transferencia) {
-        String sql = "INSERT INTO transferencia (valor, descricao, data, usuario_id) VALUES (?,?,?,?)";
-        jdbcTemplate.update(sql, transferencia.getValor(), transferencia.getDescricao(), transferencia.getData(), transferencia.getUsuario().getId());
+        String sql = "INSERT INTO transferencia (valor, descricao, data, usuario_id, recebimento, categoria_id) VALUES (?,?,?,?, ?, ?)";
+        jdbcTemplate.update(sql, transferencia.getValor(), transferencia.getDescricao(), transferencia.getData(), transferencia.getUsuario().getId(), transferencia.isRecebimento(), transferencia.getCategoria().getId());
     }
 
     @Override
     public List<Transferencia> buscarTransferenciasporId(int id) {
-        String sql = "SELECT * FROM transferencia t JOIN usuarios u ON t.id = u.id WHERE u.id = ? ";
+        String sql = "SELECT * FROM transferencia t WHERE t.id = ? ";
         return jdbcTemplate.query(sql, new TransferenciaMapper(), id);
     }
 
     @Override
     public List<Transferencia> buscarTodasTransferencias() {
-        String sql = "SELECT * FROM transferencia t join usuarios u ON u.id = t.usuario_id ";
+        String sql = "SELECT * FROM transferencia t  JOIN usuario u ON u.id = t.usuario_id  JOIN categoria c ON c.id = t.categoria_id";
         return jdbcTemplate.query(sql, new TransferenciaMapper());
     }
 
     @Override
     public List<Transferencia> buscarTransferenciasPorCategoria(int id) {
-        String sql = "SELECT * FROM transferencia t join categoria c ON c.id = t.categoria_id WHERE t.categoria_id = ?";
+        String sql = "SELECT * FROM transferencia t join usuario u ON u.id = t.usuario_id join categoria c ON c.id = t.categoria_id WHERE t.categoria_id = ?";
         return jdbcTemplate.query(sql, new TransferenciaMapper(), id);
     }
 
     @Override
     public List<Transferencia> buscarTransferenciaPorData(LocalDate inicio, LocalDate fim) {
-        String sql = "SELECT * FROM transferencia t join usuarios u ON u.id = t.usuario_id WHERE t.data between ? and ? ";
+        String sql = "SELECT * FROM transferencia t join usuario u ON u.id = t.usuario_id join categoria c ON c.id = t.categoria_id WHERE t.data between ? and ? ";
         return jdbcTemplate.query(sql, new TransferenciaMapper(), inicio, fim);
     }
 
     @Override
     public List<Transferencia> buscarTransferenciaPorUsuario(int id) {
-        String sql = "SELECT * FROM transferencia t join usuarios u ON u.id = t.usuario_id WHERE u.id = ?";
+        String sql = "SELECT * FROM transferencia t join usuario u ON u.id = t.usuario_id WHERE u.id = ?";
         return jdbcTemplate.query(sql, new TransferenciaMapper(), id);
     }
 
@@ -62,7 +62,7 @@ public class TransferenciaRepositorioImpl implements TransferenciaRepositorio {
 
     @Override
     public void alterarTransferencia(Transferencia transferencia, int id) {
-        String sql = "UPDATE transferencia set valor = ?, descricao = ?WHERE id = ?";
-        jdbcTemplate.update(sql, transferencia.getValor(), transferencia.getDescricao(), id);
+        String sql = "UPDATE transferencia set valor = ?, descricao = ?, recebimento = ?, data = ? WHERE id = ?";
+        jdbcTemplate.update(sql, transferencia.getValor(), transferencia.getDescricao(), transferencia.isRecebimento(), transferencia.getData(), id);
     }
 }

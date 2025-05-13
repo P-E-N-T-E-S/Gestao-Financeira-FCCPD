@@ -1,3 +1,5 @@
+Create database if not exists gerencia
+
 USE gerencia;
 
 CREATE TABLE IF NOT EXISTS usuario (
