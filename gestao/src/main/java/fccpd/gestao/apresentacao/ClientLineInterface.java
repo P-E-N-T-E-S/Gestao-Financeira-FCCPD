@@ -327,13 +327,14 @@ public class ClientLineInterface {
             case 2:
                 System.out.println("Insira o ID da meta que deseja editar");
                 id_meta = sc.nextInt();
-                System.out.println("Insira o titulo da categoria");
+                System.out.println("Insira o titulo da meta");
                 titulo = sc.next();
-                System.out.println("Insira a descricao da categoria");
+                System.out.println("Insira a descricao da meta");
                 descricao = sc.next();
                 System.out.println("Insira o novo valor da meta");
                 valor = sc.nextDouble();
                 m = new Meta(id_meta, titulo, descricao, valor, new Usuario(1));
+                meta.alterarMeta(m, id_meta);
                 break;
             case 3:
                 System.out.println("Insira o ID da meta que deseja deletar");
