@@ -12,8 +12,8 @@ import javax.sql.DataSource;
 public class DataSourceConfig {
 
     private String datasourceUrl = "jdbc:mysql://localhost:3306/gerencia";
-    private String datasourceUsername = "usuario";
-    private String datasourcePassword = "senha";
+    private String datasourceUsername = "root";
+    private String datasourcePassword = "Luiz1229!";
 
     @Bean
     public DataSource dataSource() {

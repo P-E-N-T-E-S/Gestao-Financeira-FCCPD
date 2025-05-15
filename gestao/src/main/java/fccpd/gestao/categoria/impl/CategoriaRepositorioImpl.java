@@ -20,26 +20,26 @@ public class CategoriaRepositorioImpl implements CategoriaRepositorio {
 
     @Override
     public void cadastrarCategoria(@NotNull Categoria categoria) {
-        String sql = "INSERT INTO meta (id, titulo, descricao) VALUES (?,?,?)";
-        jdbcTemplate.update(sql, categoria.getId(), categoria.getTitulo(), categoria.getDescricao());
+        String sql = "INSERT INTO categoria (titulo, descricao) VALUES (?,?)";
+        jdbcTemplate.update(sql, categoria.getTitulo(), categoria.getDescricao());
     }
 
     @Override
     public Categoria buscarCategoriaPorId(int id) {
-        String sql = "SELECT * FROM meta WHERE id = ?";
+        String sql = "SELECT * FROM categoria WHERE id = ?";
         return jdbcTemplate.queryForObject(sql, new CategoriaMapper(), id);
     }
 
     @Override
     public List<Categoria> listarTodasCategorias() {
-        String sql = "SELECT * FROM meta";
+        String sql = "SELECT * FROM categoria";
         return jdbcTemplate.query(sql, new CategoriaMapper());
     }
 
     @Override
     public void alterarCategoria(@NotNull Categoria categoria) {
-        String sql = "UPDATE meta SET titulo = ?, descricao = ? WHERE id = ?";
-        jdbcTemplate.update(sql, categoria.getId(), categoria.getTitulo(), categoria.getId());
+        String sql = "UPDATE categoria SET titulo = ?, descricao = ? WHERE id = ?";
+        jdbcTemplate.update(sql, categoria.getTitulo(), categoria.getDescricao(), categoria.getId());
     }
 
     @Override

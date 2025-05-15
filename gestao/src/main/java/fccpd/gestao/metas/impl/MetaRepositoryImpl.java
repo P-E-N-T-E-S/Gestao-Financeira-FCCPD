@@ -20,7 +20,7 @@ public class MetaRepositoryImpl implements MetaRepository {
     @Override
     public void cadastrarMeta(Meta meta) {
         String sql = "INSERT INTO meta (titulo, descricao, valor, usuario_id) VALUES (?,?,?,?)";
-        jdbcTemplate.update(sql, meta.getTitulo(), meta.getDescricao(), meta.getValor(), meta.getUsuarioId());
+        jdbcTemplate.update(sql, meta.getTitulo(), meta.getDescricao(), meta.getValor(), meta.getUsuario().getId());
     }
 
     @Override

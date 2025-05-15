@@ -2,7 +2,9 @@ package fccpd.gestao.apresentacao;
 
 import com.mysql.cj.xdevapi.Client;
 import fccpd.gestao.categoria.Categoria;
+import fccpd.gestao.categoria.CategoriaRepositorio;
 import fccpd.gestao.categoria.CategoriaServico;
+import fccpd.gestao.metas.Meta;
 import fccpd.gestao.metas.MetaService;
 import fccpd.gestao.transferencia.Transferencia;
 import fccpd.gestao.transferencia.TransferenciaServico;
@@ -85,7 +87,7 @@ public class ClientLineInterface {
         System.out.println("| 2 - Editar Usuario                                    |");
         System.out.println("| 3 - Remover Usuario                                   |");
         System.out.println("| 4 - Listar Usuarios                                   |");
-        System.out.println("| 5 - Buscar Usuario por ID                             |");
+        System.out.println("| 5 - Buscar Usuario por Nome                           |");
         System.out.println("| 6 - Retornar ao menu inicial                          |");
         System.out.println("| Insira uma opção de (1 ~ 6)                           |");
         System.out.println("=========================================================");
@@ -165,17 +167,17 @@ public class ClientLineInterface {
 
 
         System.out.println("=========================================================");
-        System.out.println("| Interface de Transferencias                                 |");
-        System.out.println("| 1 - Adicionar Transferencia                                 |");
-        System.out.println("| 2 - Editar Transferencia                                    |");
-        System.out.println("| 3 - Remover Transferencia                                   |");
-        System.out.println("| 4 - Listar Transferencias                                   |");
-        System.out.println("| 5 - Buscar Transferencias por ID                             |");
-        System.out.println("| 6 - Buscar Transferencias por Categoria                             |");
-        System.out.println("| 7 - Buscar Transferencias por Usuario                             |");
-        System.out.println("| 8 - Buscar Transferencias por Data                             |");
-        System.out.println("| 9 - Retornar ao menu inicial                          |");
-        System.out.println("| Insira uma opção de (1 ~ 9)                           |");
+        System.out.println("| Interface de Transferencias                            |");
+        System.out.println("| 1 - Adicionar Transferencia                            |");
+        System.out.println("| 2 - Editar Transferencia                               |");
+        System.out.println("| 3 - Remover Transferencia                              |");
+        System.out.println("| 4 - Listar Transferencias                              |");
+        System.out.println("| 5 - Buscar Transferencias por ID                       |");
+        System.out.println("| 6 - Buscar Transferencias por Categoria                |");
+        System.out.println("| 7 - Buscar Transferencias por Usuario                  |");
+        System.out.println("| 8 - Buscar Transferencias por Data                     |");
+        System.out.println("| 9 - Retornar ao menu inicial                           |");
+        System.out.println("| Insira uma opção de (1 ~ 9)                            |");
         System.out.println("=========================================================");
 
         int decisao = sc.nextInt();
@@ -275,7 +277,7 @@ public class ClientLineInterface {
         System.out.print("Deseja realizar outra operação? S - Sim ou N - Nao\n");
         String d = sc.next();
         if (d.equalsIgnoreCase("s")) {
-            ClientLineInterface.InterfaceUsuario();
+            ClientLineInterface.InterfaceTransferencia();
         }else{
             System.out.print("Encerrando o sistema \n");
             System.exit(1);
@@ -283,10 +285,162 @@ public class ClientLineInterface {
     }
 
     public static void InterfaceMeta(){
+        Scanner sc = new Scanner(System.in);
+        String titulo;
+        String descricao;
+        int id_meta;
+        int id_usuario;
+        List<Meta> meta_list;
 
+        System.out.println("=========================================================");
+        System.out.println("| Interface de Metas                                     |");
+        System.out.println("| 1 - Adicionar Metas                                    |");
+        System.out.println("| 2 - Editar Metas                                       |");
+        System.out.println("| 3 - Remover Metas                                      |");
+        System.out.println("| 4 - Listar Metas por ID                                |");
+        System.out.println("| 5 - Buscar Metas por Usuario                           |");
+        System.out.println("| 6 - Retornar ao menu inicial                           |");
+        System.out.println("| Insira uma opção de (1 ~ 6)                            |");
+        System.out.println("=========================================================");
+
+        int decisao = sc.nextInt();
+
+        while (decisao > 6 || decisao < 1) {
+            System.out.println("Valor invalido, por favor insira novamente");
+            decisao = sc.nextInt();
+        }
+
+        switch (decisao){
+            case 1:
+                System.out.println("Insira o titulo da meta");
+                titulo = sc.next();
+                System.out.println("Insira a descricao da meta");
+                descricao = sc.next();
+                System.out.println("Insira o valor da meta");
+                double valor = sc.nextDouble();
+                System.out.println("A qual usuário essa meta pertence?");
+                id_usuario = sc.nextInt();
+                Meta m = new Meta(1, titulo, descricao, valor, new Usuario(id_usuario));
+                meta.cadastrarMeta(m);
+                System.out.println("Meta cadastrada com sucesso!");
+                break;
+            case 2:
+                System.out.println("Insira o ID da meta que deseja editar");
+                id_meta = sc.nextInt();
+                System.out.println("Insira o titulo da categoria");
+                titulo = sc.next();
+                System.out.println("Insira a descricao da categoria");
+                descricao = sc.next();
+                System.out.println("Insira o novo valor da meta");
+                valor = sc.nextDouble();
+                m = new Meta(id_meta, titulo, descricao, valor, new Usuario(1));
+                break;
+            case 3:
+                System.out.println("Insira o ID da meta que deseja deletar");
+                id_meta = sc.nextInt();
+                meta.excluirMeta(id_meta);
+                break;
+            case 4:
+                System.out.println("Insira o ID da meta que deseja buscar");
+                id_meta = sc.nextInt();
+                m = meta.buscarPorId(id_meta);
+                System.out.println(m);
+                break;
+            case 5:
+                System.out.println("Insira o ID do Usuario que deseja buscar as metas");
+                id_usuario = sc.nextInt();
+                meta_list = meta.buscarPorUsuario(id_usuario);
+                System.out.println(meta_list);
+                break;
+            case 6:
+                ClientLineInterface.interfaceGeral();
+        }
+
+        System.out.print("Deseja realizar outra operação? S - Sim ou N - Nao\n");
+        String d = sc.next();
+        if (d.equalsIgnoreCase("s")) {
+            ClientLineInterface.InterfaceMeta();
+        }else{
+            System.out.print("Encerrando o sistema \n");
+            System.exit(1);
+        }
     }
 
     public static void InterfaceCategoria(){
+        Scanner sc = new Scanner(System.in);
+        String titulo;
+        String descricao;
+        int id_categoria;
+        List<Categoria> categoria_list;
 
+        System.out.println("=========================================================");
+        System.out.println("| Interface de Categoria                                 |");
+        System.out.println("| 1 - Adicionar Categoria                                |");
+        System.out.println("| 2 - Editar Categoria                                   |");
+        System.out.println("| 3 - Remover Categoria                                  |");
+        System.out.println("| 4 - Listar Categorias                                  |");
+        System.out.println("| 5 - Buscar Categoria por ID                            |");
+        System.out.println("| 6 - Retornar ao menu inicial                           |");
+        System.out.println("| Insira uma opção de (1 ~ 6)                            |");
+        System.out.println("=========================================================");
+
+        int decisao = sc.nextInt();
+
+        while (decisao > 6 || decisao < 1) {
+            System.out.println("Valor invalido, por favor insira novamente");
+            decisao = sc.nextInt();
+        }
+
+        switch (decisao){
+            case 1:
+                System.out.println("Insira o titulo da categoria");
+                titulo = sc.next();
+                System.out.println("Insira a descricao da categoria");
+                descricao = sc.next();
+                Categoria c = new Categoria(1, titulo, descricao);
+                categoria.cadastrarCategoria(c);
+                System.out.println("Categoria cadastrada com sucesso!");
+                break;
+            case 2:
+                categoria_list = categoria.listarTodasCategorias();
+                System.out.println(categoria_list);
+                System.out.println("Insira o ID da categoria que deseja editar");
+                id_categoria = sc.nextInt();
+                System.out.println("Insira o titulo da categoria");
+                titulo = sc.next();
+                System.out.println("Insira a descricao da categoria");
+                descricao = sc.next();
+                c = new Categoria(id_categoria, titulo, descricao);
+                categoria.alterarCategoria(c);
+                break;
+            case 3:
+                categoria_list = categoria.listarTodasCategorias();
+                System.out.println(categoria_list);
+                System.out.println("Insira o ID da categoria que deseja deletar");
+                id_categoria = sc.nextInt();
+                categoria.excluirCategoria(new Categoria(id_categoria));
+                break;
+            case 4:
+                categoria_list = categoria.listarTodasCategorias();
+                System.out.println(categoria_list);
+                break;
+            case 5:
+                System.out.println("Insira o ID da categoria que deseja buscar");
+                id_categoria = sc.nextInt();
+                c = categoria.buscarCategoriaPorId(id_categoria);
+                System.out.println(c);
+                break;
+            case 6:
+                ClientLineInterface.interfaceGeral();
+        }
+
+        System.out.print("Deseja realizar outra operação? S - Sim ou N - Nao\n");
+        String d = sc.next();
+        if (d.equalsIgnoreCase("s")) {
+            ClientLineInterface.InterfaceCategoria();
+        }else{
+            System.out.print("Encerrando o sistema \n");
+            System.exit(1);
+        }
     }
 }

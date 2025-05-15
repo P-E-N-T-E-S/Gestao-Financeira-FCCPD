@@ -1,18 +1,20 @@
 package fccpd.gestao.metas;
 
+import fccpd.gestao.usuario.Usuario;
+
 public class Meta {
     private int id;
     private String titulo;
     private String descricao;
     private double valor;
-    private int usuarioId;
+    private Usuario usuario;
 
-    public Meta(int id, String titulo, String descricao, double valor, int usuarioId) {
+    public Meta(int id, String titulo, String descricao, double valor, Usuario usuario) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.valor = valor;
-        this.usuarioId = usuarioId;
+        this.usuario = usuario;
     }
 
     public int getId() {
@@ -47,11 +49,21 @@ public class Meta {
         this.valor = valor;
     }
 
-    public int getUsuarioId() {
-        return usuarioId;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuarioId(int usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    @Override
+    public String toString() {
+        return "Meta{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", valor=" + valor +
+                ", usuario=" + usuario.getId() +
+                '}';
     }
 }
