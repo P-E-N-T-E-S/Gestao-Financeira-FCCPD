@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0786578-6d90-4e47-a531-e0f48ccd8bd7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/gestao/src/main/java/fccpd/gestao/metas/MetaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestao/src/main/java/fccpd/gestao/metas/MetaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestao/src/main/java/fccpd/gestao/metas/MetaService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestao/src/main/java/fccpd/gestao/metas/mapper/MetaMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestao/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gestao/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestao/src/main/java/fccpd/gestao/metas/Meta.java" beforeDir="false" afterPath="$PROJECT_DIR$/gestao/src/main/java/fccpd/gestao/metas/Meta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestao/src/main/java/fccpd/gestao/TesteEntradaRunner.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,12 +76,19 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="gestao" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="fccpd.gestao.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.28" />
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.28" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
       </set>
     </attachedChunks>
   </component>
@@ -99,6 +102,7 @@
       <workItem from="1746024249651" duration="33000" />
       <workItem from="1746057438530" duration="1593000" />
       <workItem from="1746059650975" duration="629000" />
+      <workItem from="1747315976776" duration="72000" />
     </task>
     <servers />
   </component>

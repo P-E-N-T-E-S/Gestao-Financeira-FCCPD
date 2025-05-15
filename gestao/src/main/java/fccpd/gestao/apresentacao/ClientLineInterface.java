@@ -34,8 +34,15 @@ public class ClientLineInterface {
         ClientLineInterface.categoria = categoria;
     }
 
+    private static void limpar() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
     public static void interfaceGeral() {
         Scanner sc = new Scanner(System.in);
+
+        ClientLineInterface.limpar();
 
         System.out.println("=========================================================");
         System.out.println("|Interface Geral                                        |");
@@ -80,6 +87,8 @@ public class ClientLineInterface {
         String nome;
         String senha;
         List<Usuario> user_list;
+
+        ClientLineInterface.limpar();
 
         System.out.println("=========================================================");
         System.out.println("| Interface do  Usuario                                 |");
@@ -164,6 +173,8 @@ public class ClientLineInterface {
         boolean recebimento_b;
         List<Transferencia> transferenciaList;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        ClientLineInterface.limpar();
 
 
         System.out.println("=========================================================");
@@ -292,6 +303,8 @@ public class ClientLineInterface {
         int id_usuario;
         List<Meta> meta_list;
 
+        ClientLineInterface.limpar();
+
         System.out.println("=========================================================");
         System.out.println("| Interface de Metas                                     |");
         System.out.println("| 1 - Adicionar Metas                                    |");
@@ -374,6 +387,8 @@ public class ClientLineInterface {
         int id_categoria;
         List<Categoria> categoria_list;
 
+        ClientLineInterface.limpar();
+
         System.out.println("=========================================================");
         System.out.println("| Interface de Categoria                                 |");
         System.out.println("| 1 - Adicionar Categoria                                |");
@@ -444,4 +459,5 @@ public class ClientLineInterface {
             System.exit(1);
         }
     }
+
 }

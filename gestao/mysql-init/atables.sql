@@ -1,4 +1,8 @@
-Create database if not exists gerencia
+Create database if not exists gerencia;
+
+GRANT ALL PRIVILEGES ON gerencia.* TO 'user'@'%';
+FLUSH PRIVILEGES;
+
 
 USE gerencia;
 

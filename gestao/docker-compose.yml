@@ -4,18 +4,23 @@ services:
     container_name: mysql_container
     environment:
       MYSQL_ROOT_PASSWORD: senha123
-      MYSQL_DATABASE: gerencia
       MYSQL_USER: user
       MYSQL_PASSWORD: senha
+      MYSQL_DATABASE: gerencia
     networks:
       - springnet
     ports:
       - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d
 
-  spring-app:
-    image: bmespantalho29/gestaofinanceira:latest
+  app:
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
     networks:

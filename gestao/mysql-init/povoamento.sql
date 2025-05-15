@@ -1,9 +1,9 @@
 -- Script de povoamento de dados para as tabelas usuarios, categoria, transferencia e metas
 
-USE seu_banco_de_dados;  -- ajuste para o nome do seu banco
+USE gerencia;  -- ajuste para o nome do seu banco
 
 -- Populando usuarios
-INSERT INTO usuarios (username, senha) VALUES
+INSERT INTO usuario (username, senha) VALUES
     ('alice', 'senhaAlice123'),
     ('bob',   'senhaBob456'),
     ('carol', 'senhaCarol789'),
@@ -31,7 +31,7 @@ INSERT INTO transferencia (valor, data, descricao, usuario_id, recebimento, cate
     (  30.00, '2025-04-13', 'Revisão de carro',             4, 0, 2),
     (  60.00, '2025-04-14', 'Pequenos remédios',            5, 0, 3);
 
-INSERT INTO metas (titulo, descricao, valor, usuario_id) VALUES
+INSERT INTO meta (titulo, descricao, valor, usuario_id) VALUES
     ('Poupança Viagem',       'Guardar para viagem de férias',      3000.00, 1),
     ('Fundo Emergência',       'Reserva para imprevistos',           5000.00, 2),
     ('Comprar Notebook',       'Meta para trocar de computador',     2500.00, 3),
